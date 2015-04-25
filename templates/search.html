@@ -1,0 +1,139 @@
+<% include common/header.html %>
+<!---
+<script type="text/javascript">
+$(document).ready(function(){ 
+    $('.torrent-li').hover(function(){
+    $(this).addClass('hover');
+  },function(){
+    $(this).removeClass('hover');
+  });
+}); 
+</script>
+-->
+<script type="text/javascript" src="js/library.js"></script>
+<script type="text/javascript">
+  var cache = {
+    tag: new Cache('tag'),
+    team: new Cache('team'),
+    user: new Cache('user')
+  }, tags_container = '#keyword_tags', torrents_container = '#torrent_result', search = new Search();
+
+  $(document).ready(function(){
+    jQuery.support.cors = true;
+
+    var load = ['popbangumi', 'common', 'team'];
+    for(var i = 0; i < load.length; i++)
+      $.getJSON('https://bangumi.moe/api/tag/' + load[i], function(result){
+        for(var i = 0; i < result.length; ++i){
+          var tag = new Tag(result[i]);
+          cache.tag.set(tag);
+          $('#all_tags .' + tag.type).append(tag.html().click(tag.addKeywords(tags_container)));
+        }
+      });
+
+    $('#keyword_text').change(function(){
+      var keyword;
+      if((keyword = $('#keyword_text').val()) == '')
+        return;
+
+      $.post('https://bangumi.moe/api/tag/search', JSON.stringify({
+        keywords: true,
+        multi: true,
+        name: keyword
+      }), function(result){
+        if(result.success == false)
+          return;
+
+        for(var i = 0; i < result.tag.length; ++i){
+          var tag = new Tag(result.tag[i]);
+          cache.tag.set(tag);
+          $('#tag_result').append(tag.html().click(tag.addKeywords(tags_container)));
+        }
+      });
+    });
+  });
+</script>
+
+<style type="text/css">
+.tag {
+  /*padding: 5px;*/
+  display: inline-block;
+}
+.tag:hover {
+  background-color: #3f3f3f;
+  color: #ffffff;
+  border-radius: 2px;
+}
+
+label:after {
+  content: ":";
+  padding-right: 5px;
+}
+</style>
+</head>
+
+<body>
+  <% include common/header-nav.html %>
+
+  <section class="content" id="search">
+    <div style="vertical-align:middle">
+      <h2 id="search-title">搜尋種子</h2>
+      <p class="tips-p" id="tips-p">選擇一個或多個標籤或輸入關鍵字以開始搜尋或建立 RSS 過濾器</p>
+      <div class="fix"></div>
+    </div>
+    <div id="search_tags">
+      <input id="keyword_text" onfocus="if(value=='請在這裡輸入關鍵詞以找尋標籤…') {value=''}" onblur="if (value=='') {value='請在這裡輸入關鍵詞以找尋標籤…'}" value="請在這裡輸入關鍵詞以找尋標籤…">
+      <p class="fix">找到的標籤：</p>
+      <div class="tag_list" id="tag_result"></div>
+    </div>
+    <hr>
+    <div id="tag-box">
+      <div class="tag_list" id="all_tags">
+        <div class="resolution"></div>
+        <!-- <hr> -->
+        <div class="format"></div>
+        <!-- <hr> -->
+        <div class="lang"></div>
+        <!-- <hr> -->
+        <div class="misc"></div>
+        <!-- <hr> -->
+        <div class="bangumi"></div>
+        <!-- <hr> -->
+        <div class="team"></div>
+      </div>
+      <hr>
+      <!-- <p>已選擇標籤:</p> -->
+      <div id="search_by_tags"><label>已選擇標籤</label><span id="keyword_tags"></span></div>
+    </div>
+    <h2>搜尋結果</h2>
+    <div id="search-result">
+      <div class="fix"></div>
+      <ul class="torrents-ul torrent_list" id="torrent_result">
+        <!--
+        <li class="torrent-li">
+          <div class="torrent-left">
+            <span class="torrent-subs"><img src="./img/sub-group-avatar.jpg" class="round"></span>
+            <span class="torrent-download-link"><a href="#"><img src="./img/download.gif" width="55px" height="55px"></a></span>
+          </div>
+          <div class="torrent-right">
+            <h3 class="torrent-title">【DHR動研字幕組&動漫國字幕組】[小長門有希的消失_The Disappearance of Nagato Yuki-chan][01][繁體][720P][MP4]</h3>
+            <span class="torrent-publisher">發佈者:<span class="sub-group-name">@[DHR動研字幕組]</span></span><span class="published">發佈於<span class="post-time">今天早上6點02分</span></span>
+            <span class="file-size">Size:<span class="file-size-value">171.49MB</span></span>
+          </div>
+        </li>
+        <li class="torrent-li">
+          <div class="torrent-left">
+            <span class="torrent-subs"><img src="./img/sub-group-avatar.jpg" class="round"></span>
+            <span class="torrent-download-link"><a href="#"><img src="./img/download.gif" width="55px" height="55px"></a></span>
+          </div>
+          <div class="torrent-right">
+            <h3>【DHR動研字幕組&動漫國字幕組】[小長門有希的消失_The Disappearance of Nagato Yuki-chan][01][繁體][720P][MP4]</h3>
+            <span class="torrent-publisher">發佈者:<span class="sub-group-name">@[DHR動研字幕組]</span></span><span class="published">發佈於<span class="post-time">今天早上6點02分</span></span>
+            <span class="file-size">Size:<span class="file-size-value">171.49MB</span></span>
+          </div>
+        </li>
+        -->
+      </ul>
+    </div>
+  </section>
+<% include common/footer.html %>
