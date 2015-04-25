@@ -1,3 +1,5 @@
-# rin-lite for rin-pr
+# rin-lite
 
-Frontend is design by [ox](https://www.ooxx.dk)
+A lite frontend for rin-pr
+
+Design by [ox](https://www.ooxx.dk)
