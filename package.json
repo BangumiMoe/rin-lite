@@ -1,0 +1,9 @@
+{
+  "name": "rin-lite",
+  "version": "0.1.1",
+  "private": false,
+  "dependencies": {
+    "co-fs": "*",
+    "ejs": "*"
+  }
+}

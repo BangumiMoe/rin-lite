@@ -1,0 +1,101 @@
+<% include common/header.html %>
+</head>
+<body>
+	<% include common/header-nav.html %>
+	<section class="content" id="">
+		<div class="torrent-div">
+			<div class="torrent-left">
+				<span class="torrent-subs"><img src="<%= torrent.icon %>" class="round"></span>
+				<!-- <div class="fix"></div> -->
+			</div>
+			<div class="torrent-right">
+				<h3 class="torrent-title"><%= torrent.title %></h3>
+				<!-- <p><% include torrent-publishinfo.html %></p> -->
+			</div>
+			<% if (torrent.tags) { %>
+			<div class="torrent-bottom">
+				<ul class="torrent-tag-ul">
+					<% torrent.tags.forEach(function (tag) { %>
+					<li class="torrent-tag-li ox-iconfont-2 icon-tag"><%= tag.name %></li>
+					<% }); %>
+				</ul>
+				<div class="fix"></div>
+			</div>
+			<% } %>
+		</div>
+		<div class="fix"></div>
+	</section> 
+	<section class="content" id="">
+		<section class="torrent-info">
+			<ul>
+				<li class="torrent-info-li" id="torrent-download">
+					<span class="torrent-info-title">Download</span><br>
+					<span class="torrent-info-value"><%= torrent.downloads %></span>
+				</li>
+				<li class="torrent-info-li" id="torrent-download">
+					<span class="torrent-info-title">Global downloads</span><br>
+					<span class="torrent-info-value"><%= torrent.downloads %></span>
+				</li>
+				<li class="torrent-info-li" id="torrent-download">
+					<span class="torrent-info-title">Seeders</span><br>
+					<span class="torrent-info-value"><%= torrent.seeders %></span>
+				</li>
+				<li class="torrent-info-li" id="torrent-download">
+					<span class="torrent-info-title">Finished</span><br>
+					<span class="torrent-info-value"><%= torrent.finished %></span>
+				</li>
+			</ul>
+			<div class="fix"></div>
+		</section>
+		<hr>
+		<p id="torrent-info"><% include torrent-publishinfo.html %></p>
+		<hr>
+		<div class="download-btn-small">
+			<% include torrent-downloadbar.html %>
+		</div>
+		<div id="torrent-description">
+			<%- torrent.introduction %>
+			<!-- Team Signature -->
+			<% if (torrent.team && torrent.team.signature) { %>
+			<br />
+			<%- torrent.team.signature %>
+			<% } %>
+		</div>
+		<div id="torrent-contents">
+			<h3>種子內容</h3>
+			<ul class="torrent-contents-ul">
+				<% if (torrent.content) { torrent.content.forEach(function (file) { %>
+				<% if (file instanceof Array) { %>
+				<li class="torrent-files"><%= file[0] %><% if (file[1]) { %><span class="file-size"><%= file[1] %></span><% } %></li>
+				<% } else { %>
+				<li class="torrent-files"><%= file %></li>
+				<% } %>
+				<% }); } %>
+			</ul>
+		</div>
+		<% if (torrent.teamsync) { %>
+		<div id="team-sync">
+			<h3>Team Sync</h3>
+			<% if (torrent.sync) { %>
+			<ul class="team-sync-ul">
+				<% for (var site in torrent.sync) {
+				 	var status = torrent.sync[site]; %>
+				<% if (status.indexOf('http') !== 0) { %>
+				<li><%= site %>: <a href="<%= status %>" target="_blank"><%= status %></a></li>
+				<% } else { %>
+				<li><%= site %>: <%= status %></li>
+				<% } %>
+				<% } %>
+			</ul>
+			<% } else { %>
+			<span>Syncing...</span>
+			<% } %>
+		</div>
+		<% } %>
+		<div class="download-btn-big">
+			<% include torrent-downloadbar.html %>
+		</div>
+		<!-- DISQUS CODE HERE -->
+	</section>
+	<div class="fix"></div>
+<% include common/footer.html %>

@@ -1,0 +1,62 @@
+<% include common/header.html %>
+<!-- <link href="/lite/css/ion.tabs.css" rel="stylesheet"> -->
+<!-- <link href="/lite/css/ion.tabs.skinFlat.css" rel="stylesheet"> -->
+<script type="text/javascript">
+$(document).ready(function(){ 
+  // $.ionTabs("#weekly-bgm-tab");
+
+    $('.torrent-li').hover(function(){
+    $(this).addClass('hover');
+    // $(this).next('.torrent-download-link').removeClass('hidden');
+
+  },function(){
+    $(this).removeClass('hover');
+    // $(this).next('.torrent-download-link').addClass('hidden');
+  });
+  // jQuery(".torrent-title").fitText(0.8, { minFontSize: '10px', maxFontSize: '18px' });;
+  // $(".round").corner("5px");
+}); 
+</script>
+</head>
+<body>
+  <% include common/header-nav.html %>
+  <% if (recentbangumis) { %>
+  <section class="content" id="weekly-bgm">
+    <% for (var i = 0; i < recentbangumis.availableDays.length; i++) {
+      var wday = recentbangumis.availableDays[i];
+      var bangumis = recentbangumis.showList[i];
+      if (bangumis) { %>
+    <span class="weekly-bgm-span"><%= wday %></span>
+    <div class="weekly-bgm-div">
+      <ul class="weekly-bgm-tab-ul">
+        <% bangumis.forEach(function (b) { %>
+        <a href="/search/tag/<%- b.tag_id %>" alt="" title="" target="_blank"><li class="weekly-bgm-tab-li"><%= b.name %></li></a>
+        <% }); %>
+      </ul> 
+    </div>
+    <%  }
+      } %>
+  </section>
+  <% } %>
+  <section class="content" id="latest-torrents">
+    <h2>最新種子</h2>
+    <div class="fix"></div>
+    <ul class="torrents-ul">
+      <% torrents.forEach(function (torrent) { %>
+      <li class="torrent-li">
+        <div class="torrent-left">
+          <span class="torrent-subs"><img src="<%= torrent.icon %>" class="round"></span>
+          <span class="torrent-download-link"><a href="/download/torrent/<%- torrent._id %>/<%- torrent.infoHash %>.torrent"><img src="/lite/img/download.gif" width="55px" height="55px"></a></span>
+          <!-- <div class="fix"></div> -->
+        </div>
+        <div class="torrent-right">
+          <a href="/lite/torrent/<%- torrent._id %>"><h3 class="torrent-title"><%= torrent.title %></h3></a>
+          <% include torrent-publishinfo.html %>
+          <% if (torrent.size) { %><span class="file-size">Size:<span class="file-size-value"><%= torrent.size %></span></span><% } %>
+        </div>
+      </li>
+      <% }); %>
+    </ul>
+
+  </section>
+<% include common/footer.html %>
