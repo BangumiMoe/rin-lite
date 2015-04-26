@@ -81,9 +81,9 @@
         <% for (var site in torrent.sync) {
           var status = torrent.sync[site]; %>
         <% if (status.indexOf('http') !== 0) { %>
-        <li><%= site %>: <a href="<%= status %>" target="_blank"><%= status %></a></li>
-        <% } else { %>
         <li><%= site %>: <%= status %></li>
+        <% } else { %>
+        <li><%= site %>: <a href="<%= status %>" target="_blank"><%= status %></a></li>
         <% } %>
         <% } %>
       </ul>
