@@ -71,9 +71,14 @@ lite.get('/', function *(next) {
 });
 
 lite.get('/bangumi/list', function *(next) {
+  var b = new Bangumis();
+  var bangumis = yield b.getCurrent();
+  var cblist = liteutil.getBangumiList(bangumis);
+
   this.body = yield render('bangumi-list', {
     scope: this,
     pageTitle: '番组列表',
+    currentbangumis: cblist
   });
 });
 

@@ -30,7 +30,7 @@ $(document).ready(function(){
     <div class="weekly-bgm-div">
       <ul class="weekly-bgm-tab-ul">
         <% bangumis.forEach(function (b) { %>
-        <a href="/search/tag/<%- b.tag_id %>" alt="" title="" target="_blank"><li class="weekly-bgm-tab-li"><%= b.name %></li></a>
+        <a href="/lite/search/#tag/<%- b.tag_id %>" alt="" title="" target="_blank"><li class="weekly-bgm-tab-li"><%= b.name %></li></a>
         <% }); %>
       </ul> 
     </div>
