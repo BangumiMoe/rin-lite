@@ -435,6 +435,7 @@ header div {
 	padding: 3px 8px;
 	box-shadow: 0 0 1px #CCC;
 	margin: 3px 5px;
+	cursor: pointer;
 }
 #search_by_tags {
 	background-color: #00d2c9;
@@ -459,6 +460,24 @@ header div {
 }
 #tag-box{
 	margin-bottom: 20px;
+}
+.page-btn {
+	background-color: #52AD89;
+	color: #FFFFFF;
+	padding: 5px 35px;
+	margin: 5px 0;
+/* 	border: solid 1px #fff; */
+	font-size: 17px;
+	transition: all .3s
+}
+.page-btn:hover {
+	background-color: #5fcca4;
+}
+.prev {
+	float: left;
+}
+.next {
+	float: right;
 }
 footer {
 	text-align: center;
