@@ -461,6 +461,24 @@ header div {
 #tag-box{
 	margin-bottom: 20px;
 }
+.page-btn-section {
+	width: 75%;
+	margin: 20px auto;
+}
+.page-btn {
+	background-color: #52AD89;
+	color: #FFFFFF;
+	padding: 5px 35px;
+	margin: 5px 0;
+	border: solid 1px #52AD89;
+	font-size: 17px;
+}
+.prev {
+	
+}
+.next {
+	
+}
 footer {
 	text-align: center;
 }
