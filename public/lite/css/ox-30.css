@@ -461,23 +461,23 @@ header div {
 #tag-box{
 	margin-bottom: 20px;
 }
-.page-btn-section {
-	width: 75%;
-	margin: 20px auto;
-}
 .page-btn {
 	background-color: #52AD89;
 	color: #FFFFFF;
 	padding: 5px 35px;
 	margin: 5px 0;
-	border: solid 1px #52AD89;
+/* 	border: solid 1px #fff; */
 	font-size: 17px;
+	transition: all .3s
+}
+.page-btn:hover {
+	background-color: #5fcca4;
 }
 .prev {
-	
+	float: left;
 }
 .next {
-	
+	float: right;
 }
 footer {
 	text-align: center;
