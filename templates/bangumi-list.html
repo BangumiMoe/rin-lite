@@ -16,7 +16,7 @@ $(document).ready(function(){
         <div class="fix"></div>
         <% if (bangumis) { bangumis.forEach(function (bangumi) { %>
         <div class="bangumi-div">
-            <div class="bgm-img"><img src="<%= bangumi.icon %>"></div>
+            <div class="bgm-img"><img src="/<%= bangumi.icon %>"></div>
             <div class="bgm-info">
                 <h4><%= bangumi.name %></h4>
                 <p class="production"><%= bangumi.credit %></p>
