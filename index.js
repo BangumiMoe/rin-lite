@@ -130,7 +130,10 @@ lite.get('/torrent/:_id', function *(next) {
 
 lite.get('/search', function *(next) {
   // TODO: search page
-  this.body = '';
+  this.body = yield render('search', {
+    scope: this,
+    pageTitle: '搜索',
+  });
 });
 
 // static files

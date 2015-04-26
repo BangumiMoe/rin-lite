@@ -59,6 +59,30 @@ function getShowList(rbs) {
   };
 }
 
+function getBangumiList(bs) {
+  var weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  var bangumis = [];
+  var tag_ids = [];
+
+  for (var i = 0; i < bs.length; i++) {
+      tag_ids.push(bs[i].tag_id);
+      if (bangumis[bs[i].showOn]) {
+          bangumis[bs[i].showOn].push(bs[i]);
+      } else {
+          bangumis[bs[i].showOn] = [bs[i]];
+      }
+  }
+  
+  return {
+    weekDays: weekDays,
+    bangumiList: bangumis
+  };
+}
+
 exports.arrtomap = arrtomap;
 exports.torrenticon = torrenticon;
+
+/* Bangumis */
 exports.getShowList = getShowList;
+exports.getBangumiList = getBangumiList;
