@@ -20,6 +20,13 @@ $(document).ready(function(){
 
   $(document).ready(function(){
     jQuery.support.cors = true;
+    var tags = location.href.match(/([^\/]+)/g).pop().split('+');
+      cache.tag.ready(tags);
+      cache.tag.flush(function(){
+        location.href.replace(/(.*)\/[^\/]*/, '$1/');
+        for(var i = 0; i < tags.length; ++i)
+          (cache.tag.get(tags[i]).addKeywords(tags_container))();
+      });
 
     var load = ['popbangumi', 'common', 'team'];
     for(var i = 0; i < load.length; i++)

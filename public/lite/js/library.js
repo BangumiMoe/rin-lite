@@ -114,6 +114,10 @@ var Tag = function(object){
 				search.disable();
 				if($(dom + ' span[value=' + object.id + ']').length == 0)
 					$(dom).append(object.html().click(object.removeKeywords(dom)));
+				var urlTags = '', tag_dom = $(dom + ' span');
+				for(var i = 0; i < tag_dom.length; i++)
+					urlTags += (i == 0 ? '' : '+') + tag_dom[i].value;
+				history.replaceState(undefined, undefined, location.href.replace(/(.*)\/[^\/]*/, '$1/') + urlTags);
 				(search = new Search()).search();
 			};
 		})(dom, this);
@@ -123,6 +127,10 @@ var Tag = function(object){
 			return function(){
 				search.disable();
 				$(dom + ' span').remove('[value=' + object.id + ']');
+				var urlTags = '', tag_dom = $(dom + ' span');
+				for(var i = 0; i < tag_dom.length; i++)
+					urlTags += (i == 0 ? '' : '+') + tag_dom[i].value;
+				history.replaceState(undefined, undefined, location.href.replace(/(.*)\/[^\/]*/, '$1/') + urlTags);
 				(search = new Search()).search();
 			};
 		})(dom, this);
