@@ -19,9 +19,14 @@ var lite = new Router();
 
 lite.get('/', function *(next) {
   var t = new Torrents();
-  var torrents = yield t.getByPage(1);
   var uploader_ids = [];
   var team_ids = [];
+  var p = 1;
+  if (this.params && this.params.p) {
+    p = parseInt(this.params.p);
+    if (!p || p <= 0) p = 1;
+  }
+  var torrents = yield t.getByPage(p);
 
   torrents.forEach(function (torrent) {
     if (torrent.uploader_id && uploader_ids.indexOf(torrent.uploader_id.toString()) < 0) {
@@ -66,6 +71,7 @@ lite.get('/', function *(next) {
     scope: this,
     pageTitle: '首页',
     torrents: torrents,
+    p: p,
     recentbangumis: rblist
   });
 });

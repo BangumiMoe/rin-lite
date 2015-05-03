@@ -58,9 +58,12 @@ $(document).ready(function(){
       <% }); %>
     </ul>
     <section class="page-btn-section">
-        <!-- ⬇️可能要做一下判断，是否显示“上一页” <OX(ox@ooxx.dk)> -->
-        <span class="page-btn prev">←上一页</span>
-        <span class="page-btn next">下一页→</span>
+      <% if (p > 1) { %>
+      <span class="page-btn prev"><a href="/lite/?p=<%= (p-1) %>">←上一页</a></span>
+      <% } %>
+      <% if (torrents && torrents.length >= 30) { %>
+      <span class="page-btn next"><a href="/lite/?p=<%= (p+1) %>">下一页→</a></span>
+      <% } %>
     </section>
   </section>
 <% include common/footer.html %>
