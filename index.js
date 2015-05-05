@@ -1,9 +1,11 @@
 
-//var config = require('./../../config');
+var config = require('./../../config');
 var Router = require('koa-router');
 var serve = require('koa-static');
 var validator = require('validator');
+var _ = require('underscore');
 
+var ejs = require('ejs');
 var render = require('./render');
 var liteutil = require('./util');
 
@@ -16,14 +18,72 @@ var Models = require('./../../models'),
   Bangumis = Models.Bangumis;
 
 var lite = new Router();
+var i18n_data = {};
+
+//pre load langs
+function preload_langs() {
+  var langs = config['app'].langs;
+  //var def_lang = config['app'].def_lang;
+
+  for (var i = 0; i < langs.length; i++) {
+    i18n_data[langs[i]] = require('./../../public/i18n/' + langs[i] + '.json');
+  }
+
+  ejs.filters.tagname = function (tag, lang) {
+    if (!tag) {
+      return '';
+    }
+    if (tag.locale && tag.locale[lang]) {
+      return tag.locale[lang];
+    } else {
+      return tag.name;
+    }
+  };
+
+  ejs.filters.translate = function (str, locale) {
+    var d = i18n_data[locale];
+    if (d) {
+      var s = i18n_data[locale];
+      if (s && s[str]) {
+        return s[str];
+      }
+    }
+    return str;
+  };
+}
+
+preload_langs();
+
+lite.use(function *(next) {
+  var that = this;
+  var locale = this.locale;
+  var i18n = i18n_data[locale];
+
+  this.___ = function (str) {
+    var s = i18n[str];
+    return s ? s : str;
+  };
+
+  this.render = function *(view, opts) {
+    opts = _.extend(opts, {
+      scope: that,
+      locale: locale
+    });
+
+    return yield render(view, opts);
+  };
+
+  yield next;
+
+});
 
 lite.get('/', function *(next) {
   var t = new Torrents();
   var uploader_ids = [];
   var team_ids = [];
   var p = 1;
-  if (this.params && this.params.p) {
-    p = parseInt(this.params.p);
+  if (this.query && this.query.p) {
+    p = parseInt(this.query.p);
     if (!p || p <= 0) p = 1;
   }
   var torrents = yield t.getByPage(p);
@@ -67,9 +127,8 @@ lite.get('/', function *(next) {
   var bangumis = yield b.getRecent();
   var rblist = liteutil.getShowList(bangumis);
 
-  this.body = yield render('index', {
-    scope: this,
-    pageTitle: '首页',
+  this.body = yield this.render('index', {
+    pageTitle: this.___('Index'),
     torrents: torrents,
     p: p,
     recentbangumis: rblist
@@ -81,9 +140,8 @@ lite.get('/bangumi/list', function *(next) {
   var bangumis = yield b.getCurrent();
   var cblist = liteutil.getBangumiList(bangumis);
 
-  this.body = yield render('bangumi-list', {
-    scope: this,
-    pageTitle: '番组列表',
+  this.body = yield this.render('bangumi-list', {
+    pageTitle: this.___('Bangumi List'),
     currentbangumis: cblist
   });
 });
@@ -101,7 +159,7 @@ lite.get('/torrent/:_id', function *(next) {
     return;
   }
 
-  var pageTitle = torrent.title + ' - 种子';
+  var pageTitle = torrent.title + ' - ' + this.___('Torrent');
 
   if (torrent.uploader_id) {
     var user = new Users();
@@ -127,8 +185,7 @@ lite.get('/torrent/:_id', function *(next) {
     torrent.tags = tags;
   }
 
-  this.body = yield render('torrent', {
-    scope: this,
+  this.body = yield this.render('torrent', {
     pageTitle: pageTitle,
     torrent: torrent
   });
@@ -136,9 +193,8 @@ lite.get('/torrent/:_id', function *(next) {
 
 lite.get('/search', function *(next) {
   // TODO: search page
-  this.body = yield render('search', {
-    scope: this,
-    pageTitle: '搜索',
+  this.body = yield this.render('search', {
+    pageTitle: this.___('Search'),
   });
 });
 

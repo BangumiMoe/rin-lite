@@ -16,7 +16,7 @@
       <div class="torrent-bottom">
         <ul class="torrent-tag-ul">
           <% torrent.tags.forEach(function (tag) { %>
-          <li class="torrent-tag-li ox-iconfont-2 icon-tag"><%= tag.name %></li>
+          <li class="torrent-tag-li ox-iconfont-2 icon-tag"><%=: tag | tagname:locale %></li>
           <% }); %>
         </ul>
         <div class="fix"></div>
@@ -24,7 +24,7 @@
       <% } %>
     </div>
     <div class="fix"></div>
-  </section> 
+  </section>
   <section class="content" id="">
     <section class="torrent-info">
       <ul>
@@ -62,7 +62,7 @@
       <% } %>
     </div>
     <div id="torrent-contents">
-      <h3>種子內容</h3>
+      <h3><%=: 'torrent content' | translate:locale %></h3>
       <ul class="torrent-contents-ul">
         <% if (torrent.content) { torrent.content.forEach(function (file) { %>
         <% if (file instanceof Array) { %>
@@ -75,7 +75,7 @@
     </div>
     <% if (torrent.teamsync) { %>
     <div id="team-sync">
-      <h3>Team Sync</h3>
+      <h3><%=: 'Team Sync' | translate:locale %></h3>
       <% if (torrent.sync) { %>
       <ul class="team-sync-ul">
         <% for (var site in torrent.sync) {

@@ -4,6 +4,6 @@
   "private": false,
   "dependencies": {
     "co-fs": "*",
-    "ejs": "*"
+    "ejs": "1.0.0"
   }
 }

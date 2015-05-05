@@ -1,13 +1,13 @@
 <% include common/header.html %>
 <!---
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
     $('.torrent-li').hover(function(){
     $(this).addClass('hover');
   },function(){
     $(this).removeClass('hover');
   });
-}); 
+});
 </script>
 -->
 <script type="text/javascript" src="/lite/js/library.js"></script>
@@ -84,13 +84,13 @@ label:after {
 
   <section class="content" id="search">
     <div style="vertical-align:middle">
-      <h2 id="search-title">搜尋種子</h2>
-      <p class="tips-p" id="tips-p">選擇一個或多個標籤或輸入關鍵字以開始搜尋或建立 RSS 過濾器</p>
+      <h2 id="search-title"><%=: 'Search torrent' | translate:locale %></h2>
+      <p class="tips-p" id="tips-p"><%=: 'Select tags or type to start search & create RSS filter' | translate:locale %></p>
       <div class="fix"></div>
     </div>
     <div id="search_tags">
       <input id="keyword_text" onfocus="if(value=='請在這裡輸入關鍵詞以找尋標籤…') {value=''}" onblur="if (value=='') {value='請在這裡輸入關鍵詞以找尋標籤…'}" value="請在這裡輸入關鍵詞以找尋標籤…">
-      <p class="fix">找到的標籤：</p>
+      <p class="fix"><%=: 'Tags found:' | translate:locale %></p>
       <div class="tag_list" id="tag_result"></div>
     </div>
     <hr>
@@ -105,9 +105,9 @@ label:after {
       </div>
       <hr>
       <!-- <p>已選擇標籤:</p> -->
-      <div id="search_by_tags"><label>已選擇標籤</label><span id="keyword_tags"></span></div>
+      <div id="search_by_tags"><label><%=: 'Selected tags:' | translate:locale %></label><span id="keyword_tags"></span></div>
     </div>
-    <h2>搜尋結果</h2>
+    <h2><%=: 'Search results' | translate:locale %></h2>
     <div id="search-result">
       <div class="fix"></div>
       <ul class="torrents-ul torrent_list" id="torrent_result">
