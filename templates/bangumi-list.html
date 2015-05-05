@@ -1,8 +1,8 @@
 <% include common/header.html %>
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
     jQuery("h4").fitText(0.05, { minFontSize: '12px', maxFontSize: '26px' });;
-}); 
+});
 </script>
 </head>
 <body>
@@ -12,7 +12,7 @@ $(document).ready(function(){
         <% for (var i = 0; i < currentbangumis.weekDays.length; i++) {
             var wday = currentbangumis.weekDays[i];
             var bangumis = currentbangumis.bangumiList[i]; %>
-        <h3><%= wday %></h3>  
+        <h3><%=: wday | translate:locale %></h3>  
         <div class="fix"></div>
         <% if (bangumis) { bangumis.forEach(function (bangumi) { %>
         <div class="bangumi-div">

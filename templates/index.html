@@ -26,7 +26,7 @@ $(document).ready(function(){
       var wday = recentbangumis.availableDays[i];
       var bangumis = recentbangumis.showList[i];
       if (bangumis) { %>
-    <span class="weekly-bgm-span"><%= wday %></span>
+    <span class="weekly-bgm-span"><%=: wday | translate:locale %></span>
     <div class="weekly-bgm-div">
       <ul class="weekly-bgm-tab-ul">
         <% bangumis.forEach(function (b) { %>
