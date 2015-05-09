@@ -137,20 +137,20 @@ header div {
 	padding: 2px 20px;
 /*	border: solid 1px #79DAB4;
 	color: #79DAB4;*/
-	border: solid 1px #267355;
-	color: #267355;
+	border: solid 1px #8EA4E8;
+	color: #8EA4E8;
 	/* 2015-05-09 14:27:23 */
 }
 .weekly-bgm-span {
 	width: 100%;
     /*background: #79DAB4;*/
     /*background: #52AD89;*/
-	background: #1B513C;
+	background: #8EA4E8;
 /*	^ 2015-05-09 14:30:50; */
     color: #FFF;
     padding: 5px 35px;
     margin: 5px 0;
-    border: solid 1px #1B513C;
+    border: solid 1px #8EA4E8;
 /*	                  ^ 2015-05-09 14:31:54; */
     /*box-shadow: -3px 3px 0 rgba(0,0,0,0.15);*/
 }
