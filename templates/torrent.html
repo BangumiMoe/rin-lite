@@ -76,6 +76,9 @@ $(document).ready(function() {
     </div>
     <div id="torrent-contents">
       <h3><%=: 'torrent content' | translate:locale %></h3>
+      <!-- 多語言怎麼做……不是很懂 -->
+                                  <!-- ⌄ 查看所有文件 -->
+      <div id="show-up-contents"><%=: 'Show up the contents' | translate:locale %></div>
       <ul class="torrent-contents-ul">
         <% if (torrent.content) { torrent.content.forEach(function (file) { %>
         <% if (file instanceof Array) { %>
