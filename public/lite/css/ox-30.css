@@ -176,7 +176,7 @@ header div {
 }
 .torrents-ul {
 	           /* ⌄ 2015-05-08 13:59:41️ */
-	padding: 20px 0 20px 0;
+	padding: 20px 0 0 0;
 	width: 100%;
 }
 .torrent-li {
@@ -497,7 +497,7 @@ header div {
 	background-color: #52AD89;
 	color: #FFFFFF;
 	padding: 5px 35px;
-	margin: 5px 0;
+	/*margin: 5px 0;*/
 /* 	border: solid 1px #fff; */
 	font-size: 17px;
 	transition: all .3s;
