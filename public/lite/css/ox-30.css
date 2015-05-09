@@ -57,7 +57,9 @@
 
 a {
 	text-decoration: none;
-	color: #81CEF2;
+	/*color: #81CEF2;*/
+	color: #1482B6;
+/*	^ 2015-05-09 14:33:36 */
 }
 h2 {
 	font-size: 23px;
@@ -109,7 +111,9 @@ header div {
 
 #header-login i {
 	font-size: 40px;
-	color: #81CEF2;
+	/*color: #81CEF2;*/
+	color: #1482B6;
+/*	^ 2015-05-09 14:33:54 */
 	letter-spacing: 15px;
 	vertical-align: middle;
 }
@@ -131,17 +135,23 @@ header div {
 	/*margin: 5px 10px;*/
 	word-spacing: 20px;
 	padding: 2px 20px;
-	border: solid 1px #79DAB4;
-	color: #79DAB4;
+/*	border: solid 1px #79DAB4;
+	color: #79DAB4;*/
+	border: solid 1px #267355;
+	color: #267355;
+	/* 2015-05-09 14:27:23 */
 }
 .weekly-bgm-span {
 	width: 100%;
     /*background: #79DAB4;*/
-    background: #52AD89;
+    /*background: #52AD89;*/
+	background: #1B513C;
+/*	^ 2015-05-09 14:30:50; */
     color: #FFF;
     padding: 5px 35px;
     margin: 5px 0;
-    border: solid 1px #52AD89;
+    border: solid 1px #1B513C;
+/*	                  ^ 2015-05-09 14:31:54; */
     /*box-shadow: -3px 3px 0 rgba(0,0,0,0.15);*/
 }
 .weekly-bgm-div {
@@ -165,7 +175,8 @@ header div {
 	z-index: 3;
 }
 .torrents-ul {
-	padding: 20px 10px 20px 0;
+	           /* ⌄ 2015-05-08 13:59:41️ */
+	padding: 20px 0 20px 0;
 	width: 100%;
 }
 .torrent-li {
@@ -195,6 +206,10 @@ header div {
 .torrent-li.hover .torrent-subs {
 	display: none;
 }
+.torrent-li.hover .torrent-right a h3 {
+	color: #fff;
+/*	^ 2015-05-08 14:18:31 */
+}
 .torrent-div {
 	width: 100%;
 	display: block;
@@ -219,6 +234,8 @@ header div {
 	width: 93%;
 	height: auto;
 	vertical-align: middle;
+  	margin-top: -8px;
+/*	^ 2015-05-08 14:22:35 */
 }
 .torrent-right h3 {
 	font-size: 18px;
@@ -249,9 +266,7 @@ header div {
 .torrent-publisher, .sub-group-name, .published, .post-time {
 	margin: 0 5px;
 }
-.file-size {
-	position: absolute;
-	right: 70px;	
+.file-size {	
 	float: right;
 }
 .torrent-info {
@@ -325,8 +340,25 @@ header div {
 	width: 25%;
 	float: left;
 }
+#torrent-contents {
+	position: relative;
+	overflow: hidden;
+}
 .torrent-contents-ul {
 	margin-top: 5px;
+}
+.torrent-contents-ul-hidden {
+	height: 185px;
+	overflow: hidden;
+	opacity: 0.8;
+}
+#show-up-contents {
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	font-size: 28px;
+	text-align: center;
 }
 #torrent-description, #torrent-contents, #team-sync {
 	margin-top: 30px;
@@ -339,7 +371,7 @@ header div {
 	padding: 35px 35px;
 }
 .torrent-files:before {
-	content: "";
+	content: "󰅛";
 	font-family: ox-iconfont;
 	font-size: 17px;
 }
@@ -478,6 +510,11 @@ header div {
 }
 .next {
 	float: right;
+}
+span.page-btn > a {
+/*	⌄ 2015-05-08 14:03:31*/
+	color: #fff;
+
 }
 footer {
 	text-align: center;

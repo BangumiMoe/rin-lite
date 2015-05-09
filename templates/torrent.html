@@ -1,4 +1,17 @@
 <% include common/header.html %>
+<script type="text/javascript">
+$(document).ready(function() {
+  if ($(".torrent-contents-ul li").size() >= 5) {
+    console.log('torrent-contents >= 5!');
+    $('.torrent-contents-ul').addClass('torrent-contents-ul-hidden');
+    $('#show-up-contents').removeClass('hidden');
+  };
+  $('#show-up-contents').click(function(){
+    $('.torrent-contents-ul').removeClass('torrent-contents-ul-hidden');
+    $(this).addClass('hidden');
+  })
+});
+</script>
 </head>
 <body>
   <% include common/header-nav.html %>
@@ -63,6 +76,7 @@
     </div>
     <div id="torrent-contents">
       <h3>種子內容</h3>
+      <div id="show-up-contents">點此查看所有文件</div>
       <ul class="torrent-contents-ul">
         <% if (torrent.content) { torrent.content.forEach(function (file) { %>
         <% if (file instanceof Array) { %>
