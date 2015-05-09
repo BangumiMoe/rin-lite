@@ -23,7 +23,7 @@ $(document).ready(function(){
     var tags = location.href.match(/([^\/]+)/g).pop().split('+');
     if(tags == 'search')
         tags = [];
-      cache.tags.ready(tags);
+      cache.tag.ready(tags);
       cache.tag.flush(function(){
         location.href.replace(/(.*)\/[^\/]*/, '$1/');
         if(tags.length == 0)

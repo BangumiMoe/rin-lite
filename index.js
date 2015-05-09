@@ -125,10 +125,18 @@ lite.get('/', function *(next) {
   /* Bangumis */
   var b = new Bangumis();
   var bangumis = yield b.getRecent();
+  bangumis = yield liteutil.getTags(bangumis);
   var rblist = liteutil.getShowList(bangumis);
 
+  var pageTitle;
+  if (p <= 1) {
+    pageTitle = this.___('Index');
+  } else {
+    pageTitle = this.___('Page %d').replace('%d', p.toString());
+  }
+
   this.body = yield this.render('index', {
-    pageTitle: this.___('Index'),
+    pageTitle: pageTitle,
     torrents: torrents,
     p: p,
     recentbangumis: rblist
@@ -138,6 +146,7 @@ lite.get('/', function *(next) {
 lite.get('/bangumi/list', function *(next) {
   var b = new Bangumis();
   var bangumis = yield b.getCurrent();
+  bangumis = yield liteutil.getTags(bangumis);
   var cblist = liteutil.getBangumiList(bangumis);
 
   this.body = yield this.render('bangumi-list', {

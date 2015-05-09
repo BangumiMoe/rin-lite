@@ -12,15 +12,15 @@ $(document).ready(function(){
         <% for (var i = 0; i < currentbangumis.weekDays.length; i++) {
             var wday = currentbangumis.weekDays[i];
             var bangumis = currentbangumis.bangumiList[i]; %>
-        <h3><%=: wday | translate:locale %></h3>  
+        <h3><%=: wday | translate:locale %></h3>
         <div class="fix"></div>
-        <% if (bangumis) { bangumis.forEach(function (bangumi) { %>
+        <% if (bangumis) { bangumis.forEach(function (b) { %>
         <div class="bangumi-div">
-            <div class="bgm-img"><img src="/<%= bangumi.icon %>"></div>
+            <div class="bgm-img"><img src="/<%= b.icon %>"></div>
             <div class="bgm-info">
-                <h4><%= bangumi.name %></h4>
-                <p class="production"><%= bangumi.credit %></p>
-                <p class="on-air"><%= bangumi.startDate %></p>
+                <h4><% if (b.tag) { %><%=: b.tag | tagname:locale %><% } else { %><%= b.name %><% } %></h4>
+                <p class="production"><%= b.credit %></p>
+                <p class="on-air"><%= b.startDate %></p>
                 <!-- TODO: show working team
                 <div class="tags">
                     <ul class="bgm-tag-ul">

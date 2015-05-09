@@ -30,7 +30,7 @@ $(document).ready(function(){
     <div class="weekly-bgm-div">
       <ul class="weekly-bgm-tab-ul">
         <% bangumis.forEach(function (b) { %>
-        <a href="/lite/search/#tag/<%- b.tag_id %>" alt="" title="" target="_blank"><li class="weekly-bgm-tab-li"><%= b.name %></li></a>
+        <a href="/lite/search/#tag/<%- b.tag_id %>" alt="" title="" target="_blank"><li class="weekly-bgm-tab-li"><% if (b.tag) { %><%=: b.tag | tagname:locale %><% } else { %><%= b.name %><% } %></li></a>
         <% }); %>
       </ul>
     </div>
@@ -39,7 +39,7 @@ $(document).ready(function(){
   </section>
   <% } %>
   <section class="content" id="latest-torrents">
-    <h2><%=: 'Latest torrents' | translate:locale %></h2>
+    <h2><% if (p <= 1) { %><%=: 'Latest torrents' | translate:locale %><% } else { %><%= pageTitle %><% } %></h2>
     <div class="fix"></div>
     <ul class="torrents-ul">
       <% torrents.forEach(function (torrent) { %>

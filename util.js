@@ -1,4 +1,9 @@
 
+var _ = require('underscore');
+
+var Models = require('./../../models'),
+  Tags = Models.Tags;
+
 function arrtomap(arr) {
   var m = {};
   arr.forEach(function (a) {
@@ -73,11 +78,34 @@ function getBangumiList(bs) {
           bangumis[bs[i].showOn] = [bs[i]];
       }
   }
-  
+
   return {
     weekDays: weekDays,
     bangumiList: bangumis
   };
+}
+
+function *getTags(objs) {
+  var tag_ids = [];
+  objs.forEach(function (obj) {
+    if (obj.tag_id) {
+      var stag_id = obj.tag_id.toString();
+      if (tag_ids.indexOf(stag_id) === -1) {
+        tag_ids.push(stag_id);
+      }
+    }
+  });
+  if (tag_ids.length > 0) {
+    var tags = yield new Tags().find(tag_ids);
+    var mtags = arrtomap(tags);
+    for (var i = 0; i < objs.length; i++) {
+      var stag_id = objs[i].tag_id.toString();
+      if (stag_id && mtags[stag_id]) {
+        objs[i].tag = mtags[stag_id];
+      }
+    }
+  }
+  return objs;
 }
 
 exports.arrtomap = arrtomap;
@@ -86,3 +114,5 @@ exports.torrenticon = torrenticon;
 /* Bangumis */
 exports.getShowList = getShowList;
 exports.getBangumiList = getBangumiList;
+
+exports.getTags = getTags;
