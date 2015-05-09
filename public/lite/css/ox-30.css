@@ -500,7 +500,8 @@ header div {
 	margin: 5px 0;
 /* 	border: solid 1px #fff; */
 	font-size: 17px;
-	transition: all .3s
+	transition: all .3s;
+	cursor: pointer;
 }
 .page-btn:hover {
 	background-color: #5fcca4;
