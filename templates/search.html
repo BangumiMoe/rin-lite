@@ -21,9 +21,13 @@ $(document).ready(function(){
   $(document).ready(function(){
     jQuery.support.cors = true;
     var tags = location.href.match(/([^\/]+)/g).pop().split('+');
+    if(tags == 'search')
+        tags = [];
       cache.tag.ready(tags);
       cache.tag.flush(function(){
         location.href.replace(/(.*)\/[^\/]*/, '$1/');
+        if(tags.length == 0)
+          return;
         for(var i = 0; i < tags.length; ++i)
           (cache.tag.get(tags[i]).addKeywords(tags_container))();
       });
