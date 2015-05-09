@@ -244,6 +244,9 @@ header div {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
+.torrent-title-big {
+	font-size: 23px;
+}
 .torrent-right span {
 	font-size: 14px;
 }
