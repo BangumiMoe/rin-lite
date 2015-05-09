@@ -1,8 +1,8 @@
 <% include common/header.html %>
 <script type="text/javascript">
 $(document).ready(function() {
-  if ($(".torrent-contents-ul li").size() >= 5) {
-    console.log('torrent-contents >= 5!');
+  if ($(".torrent-contents-ul li").size() > 5) {
+    console.log('torrent-contents > 5!');
     $('.torrent-contents-ul').addClass('torrent-contents-ul-hidden');
     $('#show-up-contents').removeClass('hidden');
   };
