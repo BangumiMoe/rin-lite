@@ -52,7 +52,7 @@ $(document).ready(function(){
         <div class="torrent-right">
           <a href="/lite/torrent/<%- torrent._id %>"><h3 class="torrent-title"><%= torrent.title %></h3></a>
           <% include torrent-publishinfo.html %>
-          <% if (torrent.size) { %><span class="file-size">Size:<span class="file-size-value"><%= torrent.size %></span></span><% } %>
+          <% if (torrent.size) { %><span class="file-size"><span class="file-size-value"><%= torrent.size %></span></span><% } %>
         </div>
       </li>
       <% }); %>
