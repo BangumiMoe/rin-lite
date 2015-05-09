@@ -217,7 +217,7 @@ header div {
 .torrent-left, .torrent-right {
 	display: inline-block;
 	vertical-align: middle;
-	height: 60px;
+	height: 55px;
 }
 .torrent-left {
 	width: 55px;
