@@ -1,4 +1,17 @@
 <% include common/header.html %>
+<script type="text/javascript">
+$(document).ready(function() {
+  if ($(".torrent-contents-ul li").size() >= 5) {
+    console.log('torrent-contents >= 5!');
+    $('.torrent-contents-ul').addClass('torrent-contents-ul-hidden');
+    $('#show-up-contents').removeClass('hidden');
+  };
+  $('#show-up-contents').click(function(){
+    $('.torrent-contents-ul').removeClass('torrent-contents-ul-hidden');
+    $(this).addClass('hidden');
+  })
+});
+</script>
 </head>
 <body>
   <% include common/header-nav.html %>
