@@ -59,10 +59,10 @@ $(document).ready(function(){
     </ul>
     <section class="page-btn-section">
       <% if (p > 1) { %>
-      <span class="page-btn prev"><a href="/lite/?p=<%= (p-1) %>">←上一页</a></span>
+      <a href="/lite/?p=<%= (p-1) %>"><span class="page-btn prev">←上一页</span></a>
       <% } %>
       <% if (torrents && torrents.length >= 30) { %>
-      <span class="page-btn next"><a href="/lite/?p=<%= (p+1) %>">下一页→</a></span>
+      <a href="/lite/?p=<%= (p+1) %>"><span class="page-btn next">下一页→</span></a>
       <% } %>
     </section>
   </section>
