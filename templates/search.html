@@ -10,7 +10,7 @@ $(document).ready(function(){
 });
 </script>
 -->
-<script type="text/javascript" src="/lite/js/library.js"></script>
+<script type="text/javascript" src="/lite/js/library.js?20150509185919"></script>
 <script type="text/javascript">
   var cache = {
     tag: new Cache('tag'),
@@ -23,7 +23,7 @@ $(document).ready(function(){
     var tags = location.href.match(/([^\/]+)/g).pop().split('+');
     if(tags == 'search')
         tags = [];
-      cache.tag.ready(tags);
+      cache.tags.ready(tags);
       cache.tag.flush(function(){
         location.href.replace(/(.*)\/[^\/]*/, '$1/');
         if(tags.length == 0)
@@ -118,7 +118,6 @@ label:after {
       </ul>
     </div>
     <section class="page-btn-section">
-      <!-- ⬇️可能要做一下判断，是否显示“上一页” <OX(ox@ooxx.dk)> -->
       <span class="page-btn prev">←上一页</span>
       <span class="page-btn next">下一页→</span>
     </section>
