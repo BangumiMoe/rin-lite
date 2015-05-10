@@ -24,18 +24,13 @@
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	line-height: normal;
+	line-height: 1;
+
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	/* vertical-align: inherit; */
 }
-[class^="icon-"]:before, [class*=" icon-"]:before {
-	/* margin-right: 3px; */
-	margin-right: .2em;
-	vertical-align: center;
-	/* margin-top: 2px; */
-}
+
 .icon-apple:before {
 	content: "\e600";
 }
@@ -190,8 +185,6 @@
 
 .icon-price-tag:before {
 	content: "\e626";
-	/* padding-top: 3px; */
-	vertical-align: middle;
 }
 
 .icon-price-tags:before {
@@ -412,14 +405,6 @@ header div {
 	padding: 5px 15px;
 	margin: 10px 0;
 	height: auto;
-	font-size: 0;
-}
-#latest-torrents .torrent-li {
-	float: none;
-}
-#latest-torrents .torrent-right > a > h3 {
-	line-height: 35px;
-	float: none;
 }
 .torrent-li .torrent-download-link {
 	display: none;
@@ -500,7 +485,7 @@ header div {
 	float: right;
 	background-color: #FFFFFF;
 	color: #DE5B76;
-	padding: 4px 9px 4px 8px;
+	padding: 2px 10px;
 	margin: 5px 10px;
 	box-shadow: 0 0 5px #CCC;
 }
@@ -509,7 +494,8 @@ header div {
 	/*margin: 0 5px;*/
 }
 .file-size {	
-	float: right;
+	/* float: right; */
+	margin-left: 25px;
 }
 .torrent-info {
 	width: 80%;
@@ -555,36 +541,24 @@ header div {
 	background-color: #599FC0;
 	border-radius: 300px;
 	text-align: center;
-	line-height: 57px;
+	line-height: 50px;
 }
 .download-btn-small span i:before {
 	font-size: 21px;
-	margin: 0px 0px 0 0;
+	margin: 0;
 	color: #fff;
 }
 .download-btn-big span {
-	opacity: .7;
 	display: inline-block;
-	width: 85px;
-	height: 85px;
-	background-color: transparent;
-	border-radius: 300px;
-	text-align: center;
-	border: solid 5px;
-	line-height: 70px;
-}
-.download-btn-big span:hover {
-	background-color: #fff;
-}
-.download-btn-big span i:before {
-	margin: 0;
+	width: 280px;
+	height: auto;
+	/*margin:50px;*/
+	opacity: .7;
+	font-size: 40px;
 }
 .download-btn-big span i {
 	font-size: 52px;
-	/* line-height: 85px; */
-	vertical-align: middle;
 }
-
 .torrent-dl-btn, .magnet-link-btn {
 	transition: all .3s;
 }
@@ -636,6 +610,8 @@ header div {
 	padding: 35px 35px;
 }
 .torrent-files:before {
+	content: "󰅛";
+	font-family: ox-iconfont;
 	font-size: 17px;
 }
 #team-sync {
