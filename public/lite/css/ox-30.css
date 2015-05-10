@@ -94,9 +94,9 @@ body {
 	font-family: "STHeiti Light", "SimHei", "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
 	color: #5C5C5C;
 }
-header, footer {
-	height: 100px;
-	margin: 20px 0 0 0;
+header {
+	height: 98px;
+	margin: 45px 0 15px 0;
 }
 header div {
 	display: inline-block;
@@ -120,6 +120,9 @@ header div {
 }
 #header-login i:hover {
 	color: #70b3d1;
+}
+#weekly-bgm {
+	clear: both;
 }
 #bangumi-list-btn {
 	/*border: solid 2px #81CEF2;*/
@@ -170,6 +173,10 @@ header div {
 	color: #FFFFFF;
 	background-color: #8EA4E8;
 	border: solid 1px #8EA4E8;
+}
+.today .weekly-bgm-tab-li:hover, .today .weekly-bgm-tab-li:focus {
+	background-color: #60648B;
+	border: solid 1px #60648B;
 }
 .torrent-download-link {
 	/*display: none;*/
@@ -226,7 +233,7 @@ header div {
 .torrent-left {
 	width: 55px;
 	margin-right: 7px;
-	margin-top: 2px;
+	/*margin-top: 2px;*/
 }
 .torrent-subs img {
 	border-radius: 100px;
@@ -526,7 +533,16 @@ span.page-btn > a {
 
 }
 footer {
+	height: auto;
 	text-align: center;
+	margin: 80px 0 15px 0;
+	clear: both;
+}
+footer i {
+	margin: 0 2.5px;
+}
+#copyright-text {
+	margin: 10px auto;
 }
 .fix {
 	clear: both;
