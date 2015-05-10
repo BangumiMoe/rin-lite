@@ -607,6 +607,9 @@ header div {
 	text-align: center;
 	font-size: 18px;
 }
+.torrent-info-value {
+  font-size: 23px;
+}
 .torrent-info-li {
 	width: 25%;
 	float: left;
