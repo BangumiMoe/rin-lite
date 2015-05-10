@@ -178,19 +178,17 @@ header div {
 }
 .torrent-li {
 	background-color: #FFFFFF;
-	color: #DE5B76;
+	color: #919BBA;
 	padding: 5px 15px;
 	margin: 10px 0;
-	/*font-size: 0;*/
-	/*height: 70px;*/
 	height: auto;
 }
 .torrent-li .torrent-download-link {
 	display: none;
 }
 .torrent-li.hover, .torrent-div {
-	background-color: #DE5B76;
-	color: #FFFFFF;
+	background-color: #E9EBF0;
+	color: #599FC0;
 	padding: 5px 15px;
 	margin: 10px 0;
 	/*font-size: 0;*/
@@ -204,7 +202,7 @@ header div {
 	display: none;
 }
 .torrent-li.hover .torrent-right a h3 {
-	color: #fff;
+	color: #1B698E;
 /*	^ 2015-05-08 14:18:31 */
 }
 .torrent-div {
