@@ -139,6 +139,14 @@ header div {
 	color: #8EA4E8;
 	/* 2015-05-09 14:27:23 */
 }
+.today.weekly-bgm-span {
+	background: #60648B;
+	border: solid 1px #60648B;
+}
+.today .weekly-bgm-tab-li {
+	border: solid 1px #60648B;
+	color: #60648B;
+}
 .weekly-bgm-span {
 	width: 100%;
     /*background: #79DAB4;*/
