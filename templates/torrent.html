@@ -98,7 +98,7 @@ $(document).ready(function() {
         <% if (status.indexOf('http') !== 0) { %>
         <li><%= site %>: <%= status %></li>
         <% } else { %>
-        <li><%= site %>: <a href="<%= status %>" target="_blank"><%= status %></a></li>
+        <li class="icon-link"><%= site %>: <a href="<%= status %>" target="_blank"><%= status %></a></li>
         <% } %>
         <% } %>
       </ul>
