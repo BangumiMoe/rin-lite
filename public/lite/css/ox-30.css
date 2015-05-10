@@ -514,6 +514,7 @@ header div {
 }
 .file-size {	
 	/*float: right;*/
+	margin-left: 15px;
 }
 .torrent-info {
 	width: 80%;
