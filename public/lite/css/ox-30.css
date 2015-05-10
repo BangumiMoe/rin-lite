@@ -31,9 +31,9 @@
 	/* vertical-align: inherit; */
 }
 [class^="icon-"]:before, [class*=" icon-"]:before {
-	margin-right: 3px;
+	/* margin-right: 3px; */
 	margin-right: .2em;
-	vertical-align: middle;
+	vertical-align: center;
 	/* margin-top: 2px; */
 }
 .icon-apple:before {
@@ -190,7 +190,8 @@
 
 .icon-price-tag:before {
 	content: "\e626";
-	padding-top: 3px;
+	/* padding-top: 3px; */
+	vertical-align: middle;
 }
 
 .icon-price-tags:before {
@@ -569,8 +570,8 @@ header div {
 	background-color: transparent;
 	border-radius: 300px;
 	text-align: center;
-	line-height: 71px;
-	border: solid 0px;
+	border: solid 5px;
+	line-height: 70px;
 }
 .download-btn-big span:hover {
 	background-color: #fff;
@@ -580,7 +581,8 @@ header div {
 }
 .download-btn-big span i {
 	font-size: 52px;
-	line-height: 85px;
+	/* line-height: 85px; */
+	vertical-align: middle;
 }
 
 .torrent-dl-btn, .magnet-link-btn {
