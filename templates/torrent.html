@@ -81,9 +81,9 @@ $(document).ready(function() {
       <ul class="torrent-contents-ul">
         <% if (torrent.content) { torrent.content.forEach(function (file) { %>
         <% if (file instanceof Array) { %>
-        <li class="torrent-files"><%= file[0] %><% if (file[1]) { %><span class="file-size"><%= file[1] %></span><% } %></li>
+        <li class="torrent-files icon-attachment"><%= file[0] %><% if (file[1]) { %><span class="file-size"><%= file[1] %></span><% } %></li>
         <% } else { %>
-        <li class="torrent-files"><%= file %></li>
+        <li class="torrent-files icon-attachment"><%= file %></li>
         <% } %>
         <% }); } %>
       </ul>

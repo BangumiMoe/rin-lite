@@ -24,13 +24,18 @@
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	line-height: 1;
-
+	line-height: normal;
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	/* vertical-align: inherit; */
 }
-
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	margin-right: 3px;
+	margin-right: .2em;
+	vertical-align: middle;
+	/* margin-top: 2px; */
+}
 .icon-apple:before {
 	content: "\e600";
 }
@@ -185,6 +190,7 @@
 
 .icon-price-tag:before {
 	content: "\e626";
+	padding-top: 3px;
 }
 
 .icon-price-tags:before {
@@ -493,7 +499,7 @@ header div {
 	float: right;
 	background-color: #FFFFFF;
 	color: #DE5B76;
-	padding: 2px 10px;
+	padding: 4px 9px 4px 8px;
 	margin: 5px 10px;
 	box-shadow: 0 0 5px #CCC;
 }
@@ -548,24 +554,35 @@ header div {
 	background-color: #599FC0;
 	border-radius: 300px;
 	text-align: center;
-	line-height: 50px;
+	line-height: 57px;
 }
 .download-btn-small span i:before {
 	font-size: 21px;
-	margin: 0;
+	margin: 0px 0px 0 0;
 	color: #fff;
 }
 .download-btn-big span {
-	display: inline-block;
-	width: 280px;
-	height: auto;
-	/*margin:50px;*/
 	opacity: .7;
-	font-size: 40px;
+	display: inline-block;
+	width: 85px;
+	height: 85px;
+	background-color: transparent;
+	border-radius: 300px;
+	text-align: center;
+	line-height: 71px;
+	border: solid 0px;
+}
+.download-btn-big span:hover {
+	background-color: #fff;
+}
+.download-btn-big span i:before {
+	margin: 0;
 }
 .download-btn-big span i {
 	font-size: 52px;
+	line-height: 85px;
 }
+
 .torrent-dl-btn, .magnet-link-btn {
 	transition: all .3s;
 }
@@ -617,8 +634,6 @@ header div {
 	padding: 35px 35px;
 }
 .torrent-files:before {
-	content: "󰅛";
-	font-family: ox-iconfont;
 	font-size: 17px;
 }
 #team-sync {
