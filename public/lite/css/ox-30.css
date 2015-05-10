@@ -131,9 +131,6 @@ header div {
 }
 .weekly-bgm-tab-li {
 	display: inline-block;
-	/*float: left;*/
-	/*margin: 5px 10px;*/
-	word-spacing: 20px;
 	padding: 2px 20px;
 /*	border: solid 1px #79DAB4;
 	color: #79DAB4;*/
@@ -162,8 +159,8 @@ header div {
 }
 .weekly-bgm-tab-li:hover, .weekly-bgm-tab-li:focus {
 	color: #FFFFFF;
-	background-color: #79DAB4;
-	border: solid 1px #79DAB4;
+	background-color: #8EA4E8;
+	border: solid 1px #8EA4E8;
 }
 .torrent-download-link {
 	/*display: none;*/
@@ -266,7 +263,8 @@ header div {
 	margin: 5px 10px;
 	box-shadow: 0 0 5px #CCC;
 }
-.torrent-publisher, .sub-group-name, .published, .post-time {
+/*.torrent-publisher, .sub-group-name, .published, .post-time {*/
+.sub-group-name, .post-time {
 	margin: 0 5px;
 }
 .file-size {	
