@@ -506,7 +506,8 @@ header div {
 }
 /*.torrent-publisher, .sub-group-name, .published, .post-time {*/
 .sub-group-name, .post-time {
-	/*margin: 0 5px;*/
+	margin: 0 2px;
+	vertical-align: middle;
 }
 .torrent-files {
 	white-space: nowrap;
