@@ -447,6 +447,7 @@ header div {
 	width: 100%;
 	display: block;
 	font-size: 0;
+	position: relative;
 }
 .torrent-left, .torrent-right {
 	display: inline-block;
@@ -541,6 +542,10 @@ header div {
 	/* vertical-align: middle; */
 	height: 60px;
 	padding: 5px;
+	position: absolute;
+	top: -42px;
+	right: 25px;
+	z-index: -99;
 }
 .download-btn-big {
 	width: 700px;
