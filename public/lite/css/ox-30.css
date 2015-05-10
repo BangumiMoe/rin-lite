@@ -62,14 +62,15 @@ a {
 /*	^ 2015-05-09 14:33:36 */
 }
 h2 {
-	font-size: 23px;
+	font-size: 24px;
 	padding: 3px 10px;
 	margin-right: 15px;
-	color: #DE5B76;
-	border: solid 1px #DE5B76;
+	color: #FFFFFF;
+	border: solid 1px #60648B;
 	float: left;
 	text-align: center;
 	clear: both;
+	background: #60648B;
 }
 h3 {
 	font-size: 22px;
@@ -493,7 +494,7 @@ header div {
 	margin-bottom: 20px;
 }
 .page-btn {
-	background-color: #52AD89;
+	background-color: #8EA4E8;
 	color: #FFFFFF;
 	padding: 5px 35px;
 	/*margin: 5px 0;*/
@@ -503,7 +504,7 @@ header div {
 	cursor: pointer;
 }
 .page-btn:hover {
-	background-color: #5fcca4;
+	background-color: #ACBDEF;
 }
 .prev {
 	float: left;
