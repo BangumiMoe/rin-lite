@@ -6,54 +6,258 @@
  * @version $Id$
  */
 
-@font-face {font-family: 'ox-iconfont';
-    src: url('../webfont/iconfont.eot'); /* IE9*/
-    src: url('../webfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-    url('../webfont/iconfont.woff') format('woff'), /* chrome、firefox */
-    url('../webfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url('../webfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
-}
-.ox-iconfont {
-    font-family:"ox-iconfont" !important;
-    font-size:16px;
-    font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-}
 @font-face {
-	font-family: 'ox-iconfont-2';
-	src: url('../webfont/ox-iconfont-2.eot?11814436');
-	src: url('../webfont/ox-iconfont-2.eot?11814436#iefix') format('embedded-opentype'),
-	   url('../webfont/ox-iconfont-2.woff?11814436') format('woff'),
-	   url('../webfont/ox-iconfont-2.ttf?11814436') format('truetype'),
-	   url('../webfont/ox-iconfont-2.svg?11814436#ox-iconfont-2') format('svg');
+	font-family: 'iconfont-bangumi';
+	src:url('../webfont/iconfont-bangumi.eot?-sy550f');
+	src:url('../webfont/iconfont-bangumi.eot?#iefix-sy550f') format('embedded-opentype'),
+		url('../webfont/iconfont-bangumi.woff?-sy550f') format('woff'),
+		url('../webfont/iconfont-bangumi.ttf?-sy550f') format('truetype'),
+		url('../webfont/iconfont-bangumi.svg?-sy550f#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
-[class^="icon-"]:before, [class*=" icon-"]:before {
-	font-family: "ox-iconfont-2";
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'iconfont-bangumi';
+	speak: none;
 	font-style: normal;
 	font-weight: normal;
-	speak: none;
-
-	display: inline-block;
-	text-decoration: inherit;
-	width: 1em;
-	margin-right: .2em;
-	text-align: center;
 	font-variant: normal;
 	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
- 
-.icon-link:before { content: '\e800'; } /* '' */
-.icon-attach:before { content: '\e801'; } /* '' */
-.icon-magnet:before { content: '\e802'; } /* '' */
-.icon-tag:before { content: '\e803'; } /* '' */
-.icon-quote:before { content: '\e804'; } /* '' */
-.icon-rss:before { content: '\e805'; } /* '' */
-.icon-code:before { content: '\e806'; } /* '' */
+
+.icon-apple:before {
+	content: "\e600";
+}
+
+.icon-attachment:before {
+	content: "\e601";
+}
+
+.icon-bean:before {
+	content: "\e602";
+}
+
+.icon-bin2:before {
+	content: "\e603";
+}
+
+.icon-books:before {
+	content: "\e604";
+}
+
+.icon-bubble:before {
+	content: "\e605";
+}
+
+.icon-bubbles:before {
+	content: "\e606";
+}
+
+.icon-bubbles2:before {
+	content: "\e607";
+}
+
+.icon-bubbles3:before {
+	content: "\e608";
+}
+
+.icon-chat:before {
+	content: "\e609";
+}
+
+.icon-circle-down:before {
+	content: "\e60a";
+}
+
+.icon-circle-left:before {
+	content: "\e60b";
+}
+
+.icon-circle-right:before {
+	content: "\e60c";
+}
+
+.icon-circle-up:before {
+	content: "\e60d";
+}
+
+.icon-clock:before {
+	content: "\e60e";
+}
+
+.icon-clock2:before {
+	content: "\e60f";
+}
+
+.icon-cloud-check:before {
+	content: "\e610";
+}
+
+.icon-download:before {
+	content: "\e611";
+}
+
+.icon-earth:before {
+	content: "\e612";
+}
+
+.icon-embed:before {
+	content: "\e613";
+}
+
+.icon-embed2:before {
+	content: "\e614";
+}
+
+.icon-enlarge2:before {
+	content: "\e615";
+}
+
+.icon-feed2:before {
+	content: "\e616";
+}
+
+.icon-feed3:before {
+	content: "\e617";
+}
+
+.icon-feed4:before {
+	content: "\e618";
+}
+
+.icon-film:before {
+	content: "\e619";
+}
+
+.icon-folder-open:before {
+	content: "\e61a";
+}
+
+.icon-gb-dls:before {
+	content: "\e61b";
+}
+
+.icon-heart:before {
+	content: "\e61c";
+}
+
+.icon-home:before {
+	content: "\e61d";
+}
+
+.icon-idcard:before {
+	content: "\e61e";
+}
+
+.icon-image:before {
+	content: "\e61f";
+}
+
+.icon-link:before {
+	content: "\e620";
+}
+
+.icon-magnet:before {
+	content: "\e621";
+}
+
+.icon-menu:before {
+	content: "\e622";
+}
+
+.icon-music:before {
+	content: "\e623";
+}
+
+.icon-pencil:before {
+	content: "\e624";
+}
+
+.icon-person:before {
+	content: "\e625";
+}
+
+.icon-price-tag:before {
+	content: "\e626";
+}
+
+.icon-price-tags:before {
+	content: "\e627";
+}
+
+.icon-print:before {
+	content: "\e628";
+}
+
+.icon-pushpin:before {
+	content: "\e629";
+}
+
+.icon-quotes-left:before {
+	content: "\e62a";
+}
+
+.icon-quotes-right:before {
+	content: "\e62b";
+}
+
+.icon-search:before {
+	content: "\e62c";
+}
+
+.icon-setting:before {
+	content: "\e62d";
+}
+
+.icon-share:before {
+	content: "\e62e";
+}
+
+.icon-shrink2:before {
+	content: "\e62f";
+}
+
+.icon-star-full:before {
+	content: "\e630";
+}
+
+.icon-uF0153:before {
+	content: "\e631";
+}
+
+.icon-uF0154:before {
+	content: "\e632";
+}
+
+.icon-uF0201:before {
+	content: "\e633";
+}
+
+.icon-uniE61D:before {
+	content: "\e634";
+}
+
+.icon-user:before {
+	content: "\e635";
+}
+
+.icon-warn:before {
+	content: "\e636";
+}
+
+.icon-zoom-in:before {
+	content: "\e637";
+}
+
+.icon-zoom-out:before {
+	content: "\e638";
+}
 
 a {
 	text-decoration: none;
@@ -224,25 +428,27 @@ header div {
 .torrent-div {
 	width: 100%;
 	display: block;
+	font-size: 0;
 }
 .torrent-left, .torrent-right {
 	display: inline-block;
 	vertical-align: middle;
-	height: 55px;
+	height: 60px;
 }
 .torrent-left {
-	width: 55px;
-	margin-right: 7px;
+	width: 5%;
+	/* margin-right: 7px; */
 	/*margin-top: 2px;*/
 }
 .torrent-subs img {
 	border-radius: 100px;
 	width: 55px;
 	height: 55px;
+	margin-top: 2.5px;
 }
 .torrent-right {
 	/*width: auto;*/
-	width: 93%;
+	width: 95%;
 	height: auto;
 	vertical-align: middle;
   	/*margin-top: -8px;*/
@@ -250,10 +456,12 @@ header div {
 }
 .torrent-right h3 {
 	font-size: 18px;
-	line-height: 30px;
-	width: 100%;
+	line-height: 60px;
+	width: auto;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	vertical-align: middle;
+	float: left;
 }
 .torrent-title-big {
 	font-size: 23px;
@@ -265,6 +473,7 @@ header div {
 	width: 100%;
 	clear: both;
 	float: right;
+	font-size: 14px;
 }
 .torrent-tag-ul {
 	margin: 20px 0;
@@ -297,12 +506,17 @@ header div {
 	text-align: center;
 }
 .download-btn-small {
-	width: 560px;
-	margin: 0 auto;
+	/* width: 560px; */
+	display: inline-block;
+	/* margin: 0 auto; */
 	/*font-size: 0;*/
-	word-spacing: 50px;
-	text-align: center;
-	margin-top: 30px;
+	word-spacing: 25px;
+	/* text-align: center; */
+	/* margin-top: 30px; */
+	float: right;
+	/* vertical-align: middle; */
+	height: 60px;
+	padding: 5px;
 }
 .download-btn-big {
 	width: 700px;
@@ -314,15 +528,21 @@ header div {
 }
 .download-btn-small span {
 	display: inline-block;
-	width: 200px;
-	height: auto;
-	/*margin:50px;*/
+	width: 50px;
+	height: 50px;
+	/* margin: 50px; */
 	opacity: .7;
-	font-size: 25px;
-	/*filter:alpha(opacity=50);*/
+	font-size: 14px;
+	/* filter: alpha(opacity=50); */
+	background-color: #599FC0;
+	border-radius: 300px;
+	text-align: center;
+	line-height: 50px;
 }
-.download-btn-small span i {
-	font-size: 35px;
+.download-btn-small span i:before {
+	font-size: 21px;
+	margin: 0;
+	color: #fff;
 }
 .download-btn-big span {
 	display: inline-block;
