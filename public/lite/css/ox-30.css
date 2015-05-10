@@ -405,6 +405,14 @@ header div {
 	padding: 5px 15px;
 	margin: 10px 0;
 	height: auto;
+	font-size: 0;
+}
+#latest-torrents .torrent-li {
+	float: none;
+}
+#latest-torrents .torrent-right > a > h3 {
+	line-height: 35px;
+	float: none;
 }
 .torrent-li .torrent-download-link {
 	display: none;
