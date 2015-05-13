@@ -643,6 +643,7 @@ header div {
 .show-up-contents {
 	margin-left: 10px;
 	font-size: 16px;
+	cursor: pointer;
 }
 #torrent-description, #torrent-contents, #team-sync {
 	margin-top: 30px;

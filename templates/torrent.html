@@ -2,12 +2,20 @@
 <script type="text/javascript">
 $(document).ready(function() {
   if ($(".torrent-contents-ul li").size() > 5) {
-    $('.torrent-contents-ul').addClass('torrent-contents-ul-hidden');
-    $('#show-up-contents').removeClass('hidden');
+    $('.torrent-contents-ul').addClass('hidden');
+    $('.show-up-contents').removeClass('hidden');
+    $('.show-up-contents').addClass('icon-circle-right');
   };
-  $('#show-up-contents').click(function(){
-    $('.torrent-contents-ul').removeClass('torrent-contents-ul-hidden');
-    $(this).addClass('hidden');
+  $('.show-up-contents').click(function(){
+    if (! $(this).hasClass('icon-circle-right')) {
+      $('.torrent-contents-ul').addClass('hidden');
+      $(this).addClass('icon-circle-right');
+      $(this).removeClass('icon-circle-down');
+    } else {
+      $('.torrent-contents-ul').removeClass('hidden');
+      $(this).removeClass('icon-circle-right');
+      $(this).addClass('icon-circle-down');
+    }
   })
 });
 </script>
@@ -74,10 +82,10 @@ $(document).ready(function() {
       <% } %>
     </div>
     <div id="torrent-contents">
-      <h3><%=: 'torrent content' | translate:locale %></h3>
+      <h3><%=: 'torrent content' | translate:locale %><a herf="#"><span class="show-up-contents hidden"></span></a></h3>
       <!-- 多語言怎麼做……不是很懂 -->
       <!-- ⌄ 查看所有文件 -->
-      <div id="show-up-contents"><%=: 'Show up the contents' | translate:locale %></div>
+      <!-- <div id="show-up-contents"><%=: 'Show up the contents' | translate:locale %></div> -->
       <ul class="torrent-contents-ul">
         <% if (torrent.content) { torrent.content.forEach(function (file) { %>
         <% if (file instanceof Array) { %>
