@@ -313,7 +313,7 @@ header div {
 	display: inline-block;
 }
 #header-logo {
-	width: 331px;
+	width: 232px;
 	float: left;
 }
 #header-login {
@@ -448,6 +448,7 @@ header div {
 	display: block;
 	font-size: 0;
 	position: relative;
+	/* z-index: -99; */
 }
 .torrent-left, .torrent-right {
 	display: inline-block;
@@ -543,9 +544,9 @@ header div {
 	height: 60px;
 	padding: 5px;
 	position: absolute;
-	top: -42px;
+	top: -25px;
 	right: 25px;
-	z-index: -99;
+	/* z-index: -100; */
 }
 .download-btn-big {
 	width: 700px;
@@ -638,6 +639,10 @@ header div {
 	top: 50%;
 	font-size: 28px;
 	text-align: center;
+}
+.show-up-contents {
+	margin-left: 10px;
+	font-size: 16px;
 }
 #torrent-description, #torrent-contents, #team-sync {
 	margin-top: 30px;
@@ -827,3 +832,4 @@ footer i {
 		position: inherit;
 	}
 }
+	
