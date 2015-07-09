@@ -20,8 +20,10 @@ $(document).ready(function(){
     $(document).ready(function(){
         jQuery.support.cors = true;
         var tags = location.href.match(/([^\/]+)/g).pop().split('+');
-        if(tags == 'search')
+        if(tags == 'search'){
+            location.href = location.href + '/';
             tags = [];
+        }
         cache.tag.ready(tags);
         cache.tag.flush(function(){
             location.href.replace(/(.*)\/[^\/]*/, '$1/');
