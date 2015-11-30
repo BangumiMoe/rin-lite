@@ -159,24 +159,31 @@ var Torrent = function(object){
 	this.team = object.team_id;
 	this.tags = object.tag_ids;
 	this.uploader = object.uploader_id;
+	this.size = object.size;
 
 	cache.team.ready(this.team);
 	cache.tag.ready(this.tags);
 	cache.user.ready(this.uploader);
 
 	this.html = function(){
+		var u = cache.user.get(this.uploader);
+		var t = this.team == null ? null : cache.team.get(this.team);
 		return $('<li></li>').addClass('torrent-li').append($('<div></div>').addClass('torrent-left').append(
 			$('<span></span>').addClass('torrent-subs').append($('<img>').attr({
-				src: 'https://bangumi.moe/' + (this.team == null || cache.team.get(this.team).icon == null ? 'avatar/' + cache.user.get(this.uploader).emailHash : cache.team.get(this.team).icon)
+				src: 'https://bangumi.moe/' + (t ? t.icon : 'avatar/' + u.emailHash)
 		}))).append(
 			$('<span></span>').addClass('torrent-download-link').append($('<a></a>').attr({
 				href: this.torrent
 			}).append($('<img>').attr({
 				src: '/lite/img/download.gif'
 		}))))).append($('<div></div>').addClass('torrent-right').append(
-			$('<h3></h3>').addClass('torrent-title').text(this.title)).append(
-			$('<span></span>').addClass('torrent-publisher').text('發佈者:').append($('<span></span>').addClass('sub-group-name').text(cache.user.get(this.uploader).name))).append(
-			$('<span></span>').addClass('published').text('發佈於').append($('<span></span>').addClass('post-time').text(this.date.toString())))).hover(function(){
+			$('<a></a>').attr({
+				href: '/lite/torrent/' + this.id
+			}).append($('<h3></h3>').addClass('torrent-title').text(this.title))).append(
+			$('<span></span>').addClass('torrent-publisher').text(u.name).append(t ? $('<span></span>').addClass('sub-group-name').text('@[' + t.name + ']') : null)).append(
+			$('<span></span>').addClass('published').text('發佈於').append($('<span></span>').addClass('post-time').text(this.date.toString()))).append(
+			$('<span></span>').addClass('file-size').append($('<span></span>').addClass('file-size-value').text(this.size))
+			)).hover(function(){
 			$(this).addClass('hover');
 		}, function(){
 			$(this).removeClass('hover');
