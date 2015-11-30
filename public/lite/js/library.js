@@ -63,12 +63,14 @@ var Search = function(){
 		if(tag_dom.length == 0)
 			return;
 
-		var tag_id = [];
-		for(var i = 0; i < tag_dom.length; ++i)
-			tag_id.push(tag_dom[i].value);
+		var tag_ids = [];
+		for(var i = 0; i < tag_dom.length; ++i){
+			var tag_id = $(tag_dom[i]).attr('value');
+			tag_ids.push(tag_id);
+		}
 
 		$.post('https://bangumi.moe/api/torrent/search', JSON.stringify({
-			tag_id: tag_id
+			tag_id: tag_ids
 		}), function(result){
 			if(enable == false || typeof result.torrents == 'undefined')
 				return;
@@ -116,9 +118,11 @@ var Tag = function(object){
 					$(dom).append(object.html().click(object.removeKeywords(dom)));
 				var urlTags = '';
 				$(dom + ' span').each(function(index){
-					urlTags += (index == 0 ? '' : '+') + this.value;
+					var tag_id = $(this).attr('value');
+					urlTags += (index == 0 ? '' : '+') + tag_id;
 				});
-				history.replaceState(undefined, undefined, location.href.replace(/(.*)\/[^\/]*/, '$1/') + urlTags);
+				//history.replaceState(undefined, undefined, location.href.replace(/(.*)\/[^\/]*/, '$1/') + urlTags);
+				location.hash = '#tag/' + urlTags;
 				(search = new Search()).search();
 			};
 		})(dom, this);
@@ -130,9 +134,11 @@ var Tag = function(object){
 				$(dom + ' span').remove('[value=' + object.id + ']');
 				var urlTags = '';
 				$(dom + ' span').each(function(index){
-					urlTags += (index == 0 ? '' : '+') + this.value;
+					var tag_id = $(this).attr('value');
+					urlTags += (index == 0 ? '' : '+') + tag_id;
 				});
-				history.replaceState(undefined, undefined, location.href.replace(/(.*)\/[^\/]*/, '$1/') + urlTags);
+				//history.replaceState(undefined, undefined, location.href.replace(/(.*)\/[^\/]*/, '$1/') + urlTags);
+				location.hash = '#tag/' + urlTags;
 				(search = new Search()).search();
 			};
 		})(dom, this);
@@ -166,7 +172,7 @@ var Torrent = function(object){
 			$('<span></span>').addClass('torrent-download-link').append($('<a></a>').attr({
 				href: this.torrent
 			}).append($('<img>').attr({
-				src: './img/download.gif'
+				src: '/lite/img/download.gif'
 		}))))).append($('<div></div>').addClass('torrent-right').append(
 			$('<h3></h3>').addClass('torrent-title').text(this.title)).append(
 			$('<span></span>').addClass('torrent-publisher').text('發佈者:').append($('<span></span>').addClass('sub-group-name').text(cache.user.get(this.uploader).name))).append(

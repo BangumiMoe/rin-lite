@@ -19,14 +19,18 @@ $(document).ready(function(){
     }, tags_container = '#keyword_tags', torrents_container = '#torrent_result', search = new Search();
     $(document).ready(function(){
         jQuery.support.cors = true;
-        var tags = location.href.match(/([^\/]+)/g).pop().split('+');
-        if(tags == 'search'){
-            location.href = location.href + '/';
-            tags = [];
+        var tags = [];
+        var m = location.hash.match(/([^\/]+)/g);
+        if (m) {
+          tags = m.pop().split('+');
+          if (tags === '#tag') {
+              //location.href = location.href + '/';
+              tags = [];
+          }
         }
         cache.tag.ready(tags);
         cache.tag.flush(function(){
-            location.href.replace(/(.*)\/[^\/]*/, '$1/');
+            location.hash = location.hash.replace(/(.*)\/[^\/]*/, '$1/');
             if(tags.length == 0)
                 return;
             for(var i = 0; i < tags.length; ++i)
